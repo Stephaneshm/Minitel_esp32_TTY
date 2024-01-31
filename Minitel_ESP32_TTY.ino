@@ -28,10 +28,11 @@ void loop() { //Choose Serial1 or Serial2 as required
             Serial.print(tailIndex);Serial.print('/');Serial.println(headIndex);
             for (int i = 0; i <= 10; i++) 
             {
-               if (tailIndex < headIndex )  {            
+               
+               if (tailIndex != headIndex )  {            
                Serial2.write( grBuffer[tailIndex]);
                tailIndex++;
-               if( tailIndex == BUFF_SIZE )   tailIndex = 0;
+               if( tailIndex == BUFF_SIZE && tailIndex > headIndex )   tailIndex = 0;
                }
                
             } 
